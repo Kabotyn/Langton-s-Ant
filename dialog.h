@@ -3,6 +3,15 @@
 
 #include <QDialog>
 
+#include <QPaintEvent>
+#include <QPainter>
+#include <QPen>
+#include <QRect>
+#include <QBrush>
+
+#include <QMouseEvent>
+
+
 namespace Ui {
 class Dialog;
 }
@@ -17,6 +26,10 @@ public:
 
 private:
     Ui::Dialog *ui;
+
+protected:
+    void paintEvent(QPaintEvent *e);        // paint event
+    void mouseMoveEvent(QMouseEvent *e);    // mouse move event
 };
 
 #endif // DIALOG_H
