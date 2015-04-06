@@ -27,8 +27,8 @@ private:
     int height; // height of scene
 
 protected:
-    void mouseMoveEvent(QGraphicsSceneMouseEvent *e);
-//    void mousePressEvent(QGraphicsSceneMouseEvent *e);  // event when you press mouse button
+//    void mouseMoveEvent(QGraphicsSceneMouseEvent *e);
+    void mousePressEvent(QGraphicsSceneMouseEvent *e);  // event when you press mouse button
 };
 
 #endif // MYSCENE_H

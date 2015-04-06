@@ -37,8 +37,8 @@ MyScene::~MyScene()
 
 }
 
-//void MyScene::mousePressEvent(QGraphicsSceneMouseEvent *e) {
-void MyScene::mouseMoveEvent(QGraphicsSceneMouseEvent *e) {
+void MyScene::mousePressEvent(QGraphicsSceneMouseEvent *e) {
+//void MyScene::mouseMoveEvent(QGraphicsSceneMouseEvent *e) {
 
     int rectX = floor(e->scenePos().x() / 11);  // rectangle number from lfet
     int rectY = floor(e->scenePos().y() / 11);  // rectangle number from top

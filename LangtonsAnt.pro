@@ -14,9 +14,11 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         dialog.cpp \
-    include/myscene.cpp
+    include/myscene.cpp \
+    include/langtonant.cpp
 
 HEADERS  += dialog.h \
-    include/myscene.h
+    include/myscene.h \
+    include/langtonant.h
 
 FORMS    += dialog.ui

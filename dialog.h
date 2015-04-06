@@ -12,6 +12,7 @@
 #include <QPen>
 
 #include "include/myscene.h"
+#include "include/langtonant.h"
 
 namespace Ui {
 class Dialog;
@@ -28,11 +29,11 @@ public:
 private:
     Ui::Dialog *ui;
     MyScene *scene;
-    QGraphicsLineItem *line;
-    QGraphicsRectItem *rectancle;
+
+   LangtonAnt *ant;
 
 protected:
-    void mouseMoveEvent(QMouseEvent *e);
+//    void mouseMoveEvent(QMouseEvent *e);
 
 private slots:
     void on_pushButton_clicked();
