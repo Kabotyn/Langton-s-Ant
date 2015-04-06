@@ -37,16 +37,17 @@ MyScene::~MyScene()
 
 }
 
-void MyScene::mousePressEvent(QGraphicsSceneMouseEvent *e) {
-//void MyScene::mouseMoveEvent(QGraphicsSceneMouseEvent *e) {
-    int rectX = floor(e->scenePos().x() / 11);
-    int rectY = floor(e->scenePos().y() / 11);
+//void MyScene::mousePressEvent(QGraphicsSceneMouseEvent *e) {
+void MyScene::mouseMoveEvent(QGraphicsSceneMouseEvent *e) {
 
-    int index = (rectY*55 + rectX);
+    int rectX = floor(e->scenePos().x() / 11);  // rectangle number from lfet
+    int rectY = floor(e->scenePos().y() / 11);  // rectangle number from top
 
-    if(rects[index].x() == -10) {   // so index does not exist
-        rects[index] = createDefaultRect(rectX, rectY);
-        addRect(rects[index], QPen(QColor(115, 115, 115)), QBrush(QColor(115, 115, 115)));
+    int index = (rectY*55 + rectX);     // index is a number of rectangle counting from 0 to 2199.
+
+    if(rects[index].x() == -10) {   // so index does not exist (-10 is a default value)
+        rects[index] = createDefaultRect(rectX, rectY); // add rect to vector
+        addRect(rects[index], QPen(QColor(115, 115, 115)), QBrush(QColor(115, 115, 115))); // draw rectangle
     } else {
 
     }
@@ -64,13 +65,16 @@ void MyScene::mousePressEvent(QGraphicsSceneMouseEvent *e) {
 
 }
 
+// create a fectangle in indexX and indexY (these variables are numbers od rect from left and top)
 QRect MyScene::createDefaultRect(int indexX, int indexY) {
     QRect r(indexX*11+1, indexY*11+1, 9, 9);
     return r;
 }
 
+
+// my clear function. Clear scene and put grid
 void MyScene::clear() {
     QGraphicsScene::clear(); // clear scene
-    rects.fill(QRect(-10, -10, 0, 0));
+    rects.fill(QRect(-10, -10, 0, 0));  // clear vector with rectangles
     drawGrid(); // draw grid
 }
