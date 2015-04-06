@@ -16,9 +16,22 @@ Dialog::Dialog(QWidget *parent) :
 
     ant = new LangtonAnt(55, 40);
     int x, y, index;
-    index = ant->countTileIndex(3, 39);
-    ant->countTilePosXY(index, x, y);
+//    index = ant->countTileIndex(3, 39);
+//    ant->countTilePosXY(index, x, y);
 
+    qDebug() << ant->getCurrentTile();
+     ant->countTilePosXY(ant->getCurrentTile(), x, y);
+    scene->addRect(x*11+1, y*11+1, 9 ,9 , QPen(QColor(115, 115, 115)), QBrush(QColor(115, 115, 115)));
+
+    ant->move();
+        qDebug() << ant->getCurrentTile();
+         ant->countTilePosXY(ant->getCurrentTile(), x, y);
+        scene->addRect(x*11+1, y*11+1, 9 ,9 , QPen(QColor(115, 115, 115)), QBrush(QColor(115, 115, 115)));
+
+        ant->move();
+            qDebug() << ant->getCurrentTile();
+             ant->countTilePosXY(ant->getCurrentTile(), x, y);
+            scene->addRect(x*11+1, y*11+1, 9 ,9 , QPen(QColor(115, 115, 115)), QBrush(QColor(115, 115, 115)));
 
 }
 
