@@ -18,21 +18,23 @@ Dialog::Dialog(QWidget *parent) :
     int x, y, index;
 //    index = ant->countTileIndex(3, 39);
 //    ant->countTilePosXY(index, x, y);
+//    QGraphicsPixmapItem* item = new QGraphicsPixmapItem(QPixmap::fromImage(image));
+
 
     qDebug() << ant->getCurrentTile();
      ant->countTilePosXY(ant->getCurrentTile(), x, y);
-    scene->addRect(x*11+1, y*11+1, 9 ,9 , QPen(QColor(115, 115, 115)), QBrush(QColor(115, 115, 115)));
 
-    ant->move();
-        qDebug() << ant->getCurrentTile();
-         ant->countTilePosXY(ant->getCurrentTile(), x, y);
-        scene->addRect(x*11+1, y*11+1, 9 ,9 , QPen(QColor(115, 115, 115)), QBrush(QColor(115, 115, 115)));
+     QColor q_white(255, 255, 255);
+     QColor q_dark(115, 115, 115);
 
+    scene->addRect(x*11+1, y*11+1, 9 ,9 , QPen(ant->getCurrentTileColor() == white ? q_white : q_dark), QBrush(ant->getCurrentTileColor() == white ? q_white : q_dark));
+qDebug() << "-" << ant->getCurrentTile() << ant->getCurrentTileColor();
+    for(int i = 0; i < 30; i++) {
+        qDebug() << ant->getCurrentTile() << ant->getCurrentTileColor();
+        scene->addRect(x*11+1, y*11+1, 9 ,9 , QPen(ant->getCurrentTileColor() == white ? q_white : q_dark), QBrush(ant->getCurrentTileColor() == white ? q_white : q_dark));
         ant->move();
-            qDebug() << ant->getCurrentTile();
-             ant->countTilePosXY(ant->getCurrentTile(), x, y);
-            scene->addRect(x*11+1, y*11+1, 9 ,9 , QPen(QColor(115, 115, 115)), QBrush(QColor(115, 115, 115)));
-
+         ant->countTilePosXY(ant->getCurrentTile(), x, y);
+    }
 }
 
 Dialog::~Dialog()

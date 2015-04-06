@@ -21,6 +21,8 @@ public:
 
     int getCurrentTile(); // return current tile indexś
 
+    tileColors getCurrentTileColor(); // return current tile color
+
     int countTileIndex(int p_posX, int p_posY); // count current tile index based on x and y, count from 0!!
     void countTilePosXY(int p_index, int &p_posX, int &p_posY); // count tile x and tile y from index
 

@@ -37,6 +37,10 @@ int LangtonAnt::getCurrentTile() {
     return currentTile;
 }
 
+tileColors LangtonAnt::getCurrentTileColor() {
+    return tiles[currentTile];
+}
+
 // change direction counter clockwise (right)
 void LangtonAnt::CCW() {
     if(getDirection() == west)
