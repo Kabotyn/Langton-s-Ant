@@ -2,6 +2,7 @@
 #include "ui_dialog.h"
 #include <QDebug>
 #include <QVector>
+#include <cmath>
 
 
 Dialog::Dialog(QWidget *parent) :
@@ -9,52 +10,54 @@ Dialog::Dialog(QWidget *parent) :
     ui(new Ui::Dialog)
 {
     ui->setupUi(this);
-//    this->setMouseTracking(true);
+
+    //this->setMouseTracking(true);
+
+    scene = new MyScene(this, 606, 441);
+
+    //QGraphicsScene()
+    //scene->setSceneRect(0, 0, 606, 441);
+//    setMouseTracking(true);
+    ui->graphicsView->setScene(scene);
+
+
+
+    QBrush redBrush(Qt::red);
+    QBrush bb(Qt::blue);
+    QPen pen(Qt::black);
+    pen.setWidth(1);
+    //pen.setBrush(redBrush);
+
+    rectancle = scene->addRect(1, 1, 9, 9, pen, redBrush);
+
+    scene->addRect(12, 12, 9, 9, pen, bb);
+    //scene->removeItem(rectancle);
+    rectancle = scene->addRect(1, 12, 9, 9, pen, QBrush(Qt::yellow));
+    //scene->removeItem(rectancle);
+
+
 }
 
 Dialog::~Dialog()
 {
     delete ui;
 }
+void Dialog::mouseMoveEvent(QMouseEvent *e) {
+    //QPoint p1;
+    //p1 = ui->graphicsView->mapFrom(ui->graphicsView, e->pos());
 
-void Dialog::paintEvent(QPaintEvent *e) {
-
-    // make a canvas on while dialog
-    QPainter painter(this);
-
-    QPen pen(QColor(115, 115, 115));
-    pen.setWidth(1);
-
-    QPen linePen(QColor(230, 230, 230));
-    linePen.setWidth(1);
-    painter.setPen(linePen);
-
-    // draw a patterns lines
-    for(int i = 0; i < this->width(); i+=11) {
-        painter.drawLine(i, 0, i, this->height());
-    }
-    for(int i = 0; i < this->height(); i+=11) {
-        painter.drawLine(0, i, this->width(), i);
-    }
-
-    // fill whole area with dark squares.
-    QBrush brush(QColor(115, 115, 115));
-    QVector<QRect> rects;
-    for(int i = 0; i < this->width(); i+=11) {
-        for(int j = 0; j < this->height(); j+=11) {
-            rects.push_back(QRect(i+1, j+1, 10, 10));
-            painter.fillRect(rects.back(), brush);  // just fill a squares, not draw borders
-        }
-    }
-
-
-    //painter.fillRect(rect, brush);
-    //painter.drawLine(p1, p2);
-    //painter.drawRects(rects);
-
-
+    //qDebug() << p1.x() << p1.y();
+    //scene->mouseMoveEvent();
 }
 
-void Dialog::mouseMoveEvent(QMouseEvent *e) {
-    qDebug() << "mouseEvent" << e->pos().x() << e->pos().y();
+void Dialog::on_pushButton_clicked()
+{
+
+//    for(int i = 0; i < ui->graphicsView->width(); i+=11) {
+//        scene->addLine(i,0, i, 441, QPen(Qt::magenta));
+//    }
+//    for(int i = 0; i < ui->graphicsView->height(); i+=11) {
+//        scene->addLine(0,i, 606, i, QPen(Qt::magenta));
+//    }
+
 }

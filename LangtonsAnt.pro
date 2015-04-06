@@ -13,8 +13,10 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        dialog.cpp
+        dialog.cpp \
+    include/myscene.cpp
 
-HEADERS  += dialog.h
+HEADERS  += dialog.h \
+    include/myscene.h
 
 FORMS    += dialog.ui

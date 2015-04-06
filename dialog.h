@@ -3,14 +3,15 @@
 
 #include <QDialog>
 
-#include <QPaintEvent>
-#include <QPainter>
-#include <QPen>
-#include <QRect>
-#include <QBrush>
-
 #include <QMouseEvent>
 
+#include <QGraphicsScene>
+#include <QGraphicsLineItem>
+#include <QGraphicsRectItem>
+#include <QBrush>
+#include <QPen>
+
+#include "include/myscene.h"
 
 namespace Ui {
 class Dialog;
@@ -26,10 +27,15 @@ public:
 
 private:
     Ui::Dialog *ui;
+    MyScene *scene;
+    QGraphicsLineItem *line;
+    QGraphicsRectItem *rectancle;
 
 protected:
-    void paintEvent(QPaintEvent *e);        // paint event
-    void mouseMoveEvent(QMouseEvent *e);    // mouse move event
+    void mouseMoveEvent(QMouseEvent *e);
+
+private slots:
+    void on_pushButton_clicked();
 };
 
 #endif // DIALOG_H
