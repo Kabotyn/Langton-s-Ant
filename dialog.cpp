@@ -15,6 +15,9 @@ Dialog::Dialog(QWidget *parent) :
     ui->graphicsView->setScene(scene);      // add MyScene to graphicVie
 
     ant = new LangtonAnt(55, 40);
+    int x, y, index;
+    index = ant->countTileIndex(3, 39);
+    ant->countTilePosXY(index, x, y);
 
 
 }

@@ -59,7 +59,7 @@ void MyScene::mousePressEvent(QGraphicsSceneMouseEvent *e) {
 //    l = this->items();
 //    x = l.front();
 //    //x->set
-//    qDebug() << rectX << rectY <<  index << l.size() << rects.size() << rects[1] << rects[1].x() << rects[1].y() ;
+    qDebug() << rectX << rectY <<  index;// << l.size() << rects.size() << rects[1] << rects[1].x() << rects[1].y() ;
 
     //qDebug() << l.size() << x->isVisible() << x->pos().x() << x->scenePos().x();
 
