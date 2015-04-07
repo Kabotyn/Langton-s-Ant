@@ -21,7 +21,8 @@ private:
     QRect createDefaultRect(int indexX, int indexY);
     void drawGrid();    // draw grid
 
-
+    QColor *light;
+    QColor *dark;
 
     int width;  // width of scene
     int height; // height of scene

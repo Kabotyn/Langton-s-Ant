@@ -10,17 +10,14 @@ MyScene::MyScene(QObject *parent, int w, int h)
     height = h;
     setSceneRect(0, 0, width, height);
     drawGrid();
-    qDebug() << width << height;
 
     rects.reserve(floor(width/11)*floor(height/11));
     rects.resize(floor(width/11)*floor(height/11));
-
-//    QGraphicsRectItem *xx = new QGraphicsRectItem(0, 0, 0, 0);
-//    xx->setBrush(QBrush(QColor(0, 0, 0)));
-//    xx->setPen(QPen(QColor(0, 0, 0)));
-
     rects.fill(NULL);
-//    rects.clear();
+
+    light = new QColor(255, 255, 255);
+    dark = new QColor(115, 115, 115);
+
 
 }
 
@@ -50,39 +47,33 @@ void MyScene::mousePressEvent(QGraphicsSceneMouseEvent *e) {
     int index = (rectY*floor(width/11) + rectX);     // index is a number of rectangle counting from 0 to 2199.
 
 qDebug() << "--" << index;
-    qDebug() << "-"<< rects[index];
+qDebug() << "-"<< rects[index];
 
 
-    if(rects[index] == NULL) {   // so index does not exist (-10 is a default value)
+    if(rects[index] == NULL) {   // so index does not exist
 
-        //rects[index] = createDefaultRect(rectX, rectY); // add rect to vector
 qDebug() << "++" << rects.size();
+
+        // create new object
         QGraphicsRectItem *xx = new QGraphicsRectItem(rectX*11 + 1, rectY*11+1, 9, 9);
-        xx->setBrush(QBrush(QColor(55, 115, 115)));
-        xx->setPen(QPen(QColor(115, 115, 115)));
+        xx->setBrush(QBrush(*light));   // default color is white
+        xx->setPen(QPen(*light));
 
         rects[index] = xx;
-//        rects[index]->setPos(rectX*11 + 1, rectY*11+1);
-//        rects[index]->setBrush(QBrush(QColor(240, 10, 10)));
-//        rects[index]->setPen(QPen(QColor(115, 115, 115)));
-
-        //    qDebug() << rects[index];
 
         addItem(rects[index]);
 
-        //addRect(rects[index], QPen(QColor(115, 115, 115)), QBrush(QColor(115, 115, 115))); // draw rectangle
     } else {
-//        rects[index] =
+        if(rects[index]->brush().color() == *light) {
+            rects[index]->setBrush(QBrush(*dark));
+            rects[index]->setPen(QPen(*dark));
+        } else {
+            rects[index]->setBrush(QBrush(*light));
+            rects[index]->setPen(QPen(*light));
+        }
     }
 
-//    QGraphicsItem *x;
-//    QList<QGraphicsItem *> l;
-//    l = this->items();
-//    x = l.front();
-//    //x->set
-
-    qDebug() << rectX << rectY <<  index;// << l.size() << rects.size() << rects[1] << rects[1].x() << rects[1].y() ;
-
+qDebug() << rectX << rectY <<  index;
 
 }
 
