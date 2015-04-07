@@ -11,7 +11,7 @@ LangtonAnt::LangtonAnt(int p_w, int p_h) {
 
     // init curent tile more or less in the middle of space
     currentTile = countTileIndex(floor(width/2), floor(height/2));
-
+qDebug() << "Current "<< currentTile;
 }
 
 LangtonAnt::~LangtonAnt() {
@@ -92,9 +92,9 @@ int LangtonAnt::nextTile() {
 
 void LangtonAnt::newDirection(int p_newTileIndex) {
     if(tiles[p_newTileIndex] == white)
-        CCW();
-    else
         CW();
+    else
+        CCW();
 }
 
 void LangtonAnt::move() {

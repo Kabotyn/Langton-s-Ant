@@ -58,7 +58,11 @@ void MyScene::mousePressEvent(QGraphicsSceneMouseEvent *e) {
 //qDebug() << "--" << index;
 //qDebug() << "-"<< rects[index];
 
-changeTileColor(index);
+//changeTileColor(index);
+    if(rects[index] != NULL)
+        qDebug() << "  KLIK" << rects[index]->brush().color();
+    else
+        qDebug() << "  NIE ISTNIEJE";
 
 
 //    if(rects[index] == NULL) {   // so index does not exist
@@ -84,7 +88,7 @@ changeTileColor(index);
 //        }
 //    }
 
-qDebug() << rectX << rectY <<  index;
+//qDebug() << rectX << rectY <<  index;
 
 }
 
@@ -140,4 +144,8 @@ void MyScene::changeTileColor(int index) {
 
 void MyScene::changeTileColor(int index, QColor color) {
     rects[index]->setBrush(QBrush(color));
+}
+
+bool MyScene::isTileHasColor(int index) {
+    return (rects[index] != NULL);
 }

@@ -37,7 +37,7 @@ private:
 
 
 protected:
-//    void mouseMoveEvent(QMouseEvent *e);
+
 
 private slots:
     void on_pushButton_clicked();
