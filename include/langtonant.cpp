@@ -11,7 +11,7 @@ LangtonAnt::LangtonAnt(int p_w, int p_h) {
 
     // init curent tile more or less in the middle of space
     currentTile = countTileIndex(floor(width/2), floor(height/2));
-qDebug() << "Current "<< currentTile;
+
 }
 
 LangtonAnt::~LangtonAnt() {

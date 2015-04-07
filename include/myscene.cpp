@@ -15,6 +15,8 @@ MyScene::MyScene(QObject *parent, int w, int h)
     rects.resize(floor(width/11)*floor(height/11));
     rects.fill(NULL);
 
+//    redRect = new QGraphicsRectItem(0, 0, 9, 9);
+
     light = new QColor(255, 255, 255);
     dark = new QColor(115, 115, 115);
 

@@ -27,6 +27,7 @@ public:
 
 private:
     QVector<QGraphicsRectItem *> rects;
+    QGraphicsRectItem *redRect; // rectangle with ant
     void drawGrid();    // draw grid
 
     QColor *light;  // white color tile
