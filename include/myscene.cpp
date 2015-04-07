@@ -142,10 +142,6 @@ void MyScene::changeTileColor(int index) {
     }
 }
 
-void MyScene::changeTileColor(int index, QColor color) {
-    rects[index]->setBrush(QBrush(color));
-}
-
 bool MyScene::isTileHasColor(int index) {
     return (rects[index] != NULL);
 }

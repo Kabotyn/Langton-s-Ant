@@ -23,8 +23,6 @@ public:
     void changeTileColor(int index);
 
 
-    void changeTileColor(int index, QColor color);  // test Only!!!
-
     bool isTileHasColor(int index); // true if yes, false if not
 
 

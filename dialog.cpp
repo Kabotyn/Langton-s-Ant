@@ -18,7 +18,6 @@ Dialog::Dialog(QWidget *parent) :
 //    ant = new LangtonAnt(55, 40);
     ant = new LangtonAnt(11, 11);
 
-//    int x, y, index;
 
     scene->changeTileColor(ant->getCurrentTile());
 
@@ -26,22 +25,6 @@ Dialog::Dialog(QWidget *parent) :
     connect(timer, SIGNAL(timeout()), this, SLOT(onTimer()));
     timer->start(10);
 
-
-
-//qDebug() << ant->getCurrentTile();
-//     ant->countTilePosXY(ant->getCurrentTile(), x, y);
-
-//     QColor q_white(255, 255, 255);
-//     QColor q_dark(115, 115, 115);
-
-    //scene->addRect(x*11+1, y*11+1, 9 ,9 , QPen(ant->getCurrentTileColor() == white ? q_white : q_dark), QBrush(ant->getCurrentTileColor() == white ? q_white : q_dark));
-//qDebug() << "-" << ant->getCurrentTile() << ant->getCurrentTileColor();
-//    for(int i = 0; i < 30; i++) {
-//        qDebug() << ant->getCurrentTile() << ant->getCurrentTileColor();
-//        scene->addRect(x*11+1, y*11+1, 9 ,9 , QPen(ant->getCurrentTileColor() == white ? q_white : q_dark), QBrush(ant->getCurrentTileColor() == white ? q_white : q_dark));
-//        ant->move();
-//         ant->countTilePosXY(ant->getCurrentTile(), x, y);
-//    }
 
 
 }
@@ -52,13 +35,6 @@ Dialog::~Dialog()
     delete ant;
     delete scene;
 }
-//void Dialog::mouseMoveEvent(QMouseEvent *e) {
-    //QPoint p1;
-    //p1 = ui->graphicsView->mapFrom(ui->graphicsView, e->pos());
-
-    //qDebug() << p1.x() << p1.y();
-    //scene->mouseMoveEvent();
-//}
 
 void Dialog::on_pushButton_clicked()
 {
