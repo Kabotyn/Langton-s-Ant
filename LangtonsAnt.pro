@@ -22,3 +22,8 @@ HEADERS  += dialog.h \
     include/langtonant.h
 
 FORMS    += dialog.ui
+
+DISTFILES +=
+
+RESOURCES += \
+    resources.qrc
