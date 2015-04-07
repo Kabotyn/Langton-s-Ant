@@ -15,17 +15,18 @@ Dialog::Dialog(QWidget *parent) :
     ui->graphicsView->setScene(scene);      // add MyScene to graphicVie
 
     ant = new LangtonAnt(55, 40);
+
+    QImage image(":/image/ant.png");  // file with ant
+    antIcon = new QGraphicsPixmapItem(QPixmap::fromImage(image));
+    scene->addItem(antIcon); // add icon to scene
+
     int x, y, index;
 
-    QImage image(":/image/ant.png");
-    QGraphicsPixmapItem* item = new QGraphicsPixmapItem(QPixmap::fromImage(image));
-    item->setPos(100, 100);
-    item->setRotation(90);
-    scene->addItem(item);
 
-//    index = ant->countTileIndex(3, 39);
-//    ant->countTilePosXY(index, x, y);
-//    QGraphicsPixmapItem* item = new QGraphicsPixmapItem(QPixmap::fromImage(image));
+
+
+//    antIcon->setPos(100, 100);
+//    antIcon->setRotation(90);
 
     qDebug() << ant->getCurrentTile();
      ant->countTilePosXY(ant->getCurrentTile(), x, y);

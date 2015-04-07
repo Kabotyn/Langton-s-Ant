@@ -31,6 +31,7 @@ private:
     MyScene *scene;
 
    LangtonAnt *ant;
+   QGraphicsPixmapItem* antIcon; // item with Ant icon (png file from reosurces)
 
 protected:
 //    void mouseMoveEvent(QMouseEvent *e);
