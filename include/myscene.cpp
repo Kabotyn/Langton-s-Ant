@@ -12,9 +12,14 @@ MyScene::MyScene(QObject *parent, int w, int h)
     drawGrid();
     qDebug() << width << height;
 
-    rects.reserve(2200);
-    rects.resize(2200);
-    rects.fill(QRect(-10, -10, 0, 0));
+    rects.reserve(floor(width/11)*floor(height/11));
+    rects.resize(floor(width/11)*floor(height/11));
+
+//    QGraphicsRectItem *xx = new QGraphicsRectItem(0, 0, 0, 0);
+//    xx->setBrush(QBrush(QColor(0, 0, 0)));
+//    xx->setPen(QPen(QColor(0, 0, 0)));
+
+    rects.fill(NULL);
 //    rects.clear();
 
 }
@@ -44,13 +49,26 @@ void MyScene::mousePressEvent(QGraphicsSceneMouseEvent *e) {
 
     int index = (rectY*floor(width/11) + rectX);     // index is a number of rectangle counting from 0 to 2199.
 
-    if(rects[index].x() == -10) {   // so index does not exist (-10 is a default value)
-        //rects[index] = createDefaultRect(rectX, rectY); // add rect to vector
+qDebug() << "--" << index;
+    qDebug() << "-"<< rects[index];
 
-        QGraphicsRectItem *xx = new QGraphicsRectItem(20, 20, 20, 20);
+
+    if(rects[index] == NULL) {   // so index does not exist (-10 is a default value)
+
+        //rects[index] = createDefaultRect(rectX, rectY); // add rect to vector
+qDebug() << "++" << rects.size();
+        QGraphicsRectItem *xx = new QGraphicsRectItem(rectX*11 + 1, rectY*11+1, 9, 9);
         xx->setBrush(QBrush(QColor(55, 115, 115)));
         xx->setPen(QPen(QColor(115, 115, 115)));
-        addItem(xx);
+
+        rects[index] = xx;
+//        rects[index]->setPos(rectX*11 + 1, rectY*11+1);
+//        rects[index]->setBrush(QBrush(QColor(240, 10, 10)));
+//        rects[index]->setPen(QPen(QColor(115, 115, 115)));
+
+        //    qDebug() << rects[index];
+
+        addItem(rects[index]);
 
         //addRect(rects[index], QPen(QColor(115, 115, 115)), QBrush(QColor(115, 115, 115))); // draw rectangle
     } else {
@@ -78,6 +96,6 @@ QRect MyScene::createDefaultRect(int indexX, int indexY) {
 // my clear function. Clear scene and put grid
 void MyScene::clear() {
     QGraphicsScene::clear(); // clear scene
-    rects.fill(QRect(-10, -10, 0, 0));  // clear vector with rectangles
+    rects.fill(NULL);  // clear vector with rectangles
     drawGrid(); // draw grid
 }

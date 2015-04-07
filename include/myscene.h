@@ -17,7 +17,7 @@ public:
 
 
 private:
-    QVector<QRect> rects;
+    QVector<QGraphicsRectItem *> rects;
     QRect createDefaultRect(int indexX, int indexY);
     void drawGrid();    // draw grid
 
