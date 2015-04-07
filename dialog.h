@@ -10,6 +10,7 @@
 #include <QGraphicsRectItem>
 #include <QBrush>
 #include <QPen>
+#include <QTimer>
 
 #include "include/myscene.h"
 #include "include/langtonant.h"
@@ -30,14 +31,17 @@ private:
     Ui::Dialog *ui;
     MyScene *scene;
 
-   LangtonAnt *ant;
-   QGraphicsPixmapItem* antIcon; // item with Ant icon (png file from reosurces)
+    LangtonAnt *ant;
+
+    QTimer *timer;
+
 
 protected:
 //    void mouseMoveEvent(QMouseEvent *e);
 
 private slots:
     void on_pushButton_clicked();
+    void onTimer();
 };
 
 #endif // DIALOG_H
