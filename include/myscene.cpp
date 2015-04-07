@@ -18,16 +18,6 @@ MyScene::MyScene(QObject *parent, int w, int h)
     light = new QColor(255, 255, 255);
     dark = new QColor(115, 115, 115);
 
-
-//    QImage image(":/image/ant.png");  // file with ant
-//    antIcon = new QGraphicsPixmapItem(QPixmap::fromImage(image));
-//    addItem(antIcon); // add icon to scene
-
-//    antIcon->setPos(20, 20);
-//    antCW();
-//    antCW();
-
-
 }
 
 
@@ -45,59 +35,20 @@ void MyScene::drawGrid() {
 
 MyScene::~MyScene()
 {
-
+    delete light;
+    delete dark;
 }
 
 void MyScene::mousePressEvent(QGraphicsSceneMouseEvent *e) {
+// here will be possibility to change status(color) of tiles
 
-    int rectX = floor(e->scenePos().x() / 11);  // rectangle number from lfet
-    int rectY = floor(e->scenePos().y() / 11);  // rectangle number from top
+//    int rectX = floor(e->scenePos().x() / 11);  // rectangle number from lfet
+//    int rectY = floor(e->scenePos().y() / 11);  // rectangle number from top
 
-    int index = (rectY*floor(width/11) + rectX);     // index is a number of rectangle counting from 0 to 2199.
+//    int index = (rectY*floor(width/11) + rectX);     // index is a number of rectangle counting from 0 to 2199.
 
-//qDebug() << "--" << index;
-//qDebug() << "-"<< rects[index];
-
-//changeTileColor(index);
-    if(rects[index] != NULL)
-        qDebug() << "  KLIK" << rects[index]->brush().color();
-    else
-        qDebug() << "  NIE ISTNIEJE";
-
-
-//    if(rects[index] == NULL) {   // so index does not exist
-
-//qDebug() << "++" << rects.size();
-
-//        // create new object
-//        QGraphicsRectItem *xx = new QGraphicsRectItem(rectX*11 + 1, rectY*11+1, 9, 9);
-//        xx->setBrush(QBrush(*light));   // default color is white
-//        xx->setPen(QPen(*light));
-
-//        rects[index] = xx;
-
-//        addItem(rects[index]);
-
-//    } else {
-//        if(rects[index]->brush().color() == *light) {
-//            rects[index]->setBrush(QBrush(*dark));
-//            rects[index]->setPen(QPen(*dark));
-//        } else {
-//            rects[index]->setBrush(QBrush(*light));
-//            rects[index]->setPen(QPen(*light));
-//        }
-//    }
-
-//qDebug() << rectX << rectY <<  index;
 
 }
-
-// create a fectangle in indexX and indexY (these variables are numbers od rect from left and top)
-//QRect MyScene::createDefaultRect(int indexX, int indexY) {
-//    QRect r(indexX*11+1, indexY*11+1, 9, 9);
-//    return r;
-//}
-
 
 // my clear function. Clear scene and put grid
 void MyScene::clear() {
@@ -120,18 +71,20 @@ void MyScene::changeTileColor(int index) {
         int rectX = index % (width/11);
         int rectY = floor(index / (width/11));
 
-// qDebug() << "INDEX" << index << width << rectX << rectY;
-
         // create new object
-        QGraphicsRectItem *xx = new QGraphicsRectItem(rectX*11 + 1, rectY*11+1, 9, 9);
-        xx->setBrush(QBrush(*light));   // default color is white
-        xx->setPen(QPen(*light));
+        QGraphicsRectItem *tempRectItem = new QGraphicsRectItem(rectX*11 + 1, rectY*11+1, 9, 9);
+        tempRectItem->setBrush(QBrush(*light));   // default color is white
+        tempRectItem->setPen(QPen(*light));
 
-        rects[index] = xx;
+        rects[index] = tempRectItem;
 
+        /* when item is added ones to the scene it is possible to change it properties
+         * without adding it again and agian
+        */
         addItem(rects[index]);
 
     } else {
+        // code change tile color depend on current color
         if(rects[index]->brush().color() == *light) {
             rects[index]->setBrush(QBrush(*dark));
             rects[index]->setPen(QPen(*dark));
@@ -142,6 +95,8 @@ void MyScene::changeTileColor(int index) {
     }
 }
 
+// this function is usefull to visualise data on scene.
+// return true if tile exists (ant was on this tile).
 bool MyScene::isTileHasColor(int index) {
     return (rects[index] != NULL);
 }

@@ -10,20 +10,20 @@ Dialog::Dialog(QWidget *parent) :
 {
     ui->setupUi(this);
 
-//    scene = new MyScene(this, 606, 441);
-    scene = new MyScene(this, 11*11+1, 11*11+1);
+    scene = new MyScene(this, 606, 441);
+//    scene = new MyScene(this, 11*11+1, 11*11+1);
 
     ui->graphicsView->setScene(scene);      // add MyScene to graphicVie
 
-//    ant = new LangtonAnt(55, 40);
-    ant = new LangtonAnt(11, 11);
+    ant = new LangtonAnt(55, 40);
+//    ant = new LangtonAnt(11, 11);
 
 
     scene->changeTileColor(ant->getCurrentTile());
 
     timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(onTimer()));
-    timer->start(10);
+    timer->start(100);
 
 
 

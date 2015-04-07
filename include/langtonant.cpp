@@ -29,9 +29,6 @@ void LangtonAnt::countTilePosXY(int p_index, int &p_posX, int &p_posY) {
     p_posY = floor(p_index/width);
 }
 
-directions LangtonAnt::getDirection() {
-    return currentDirection;
-}
 
 int LangtonAnt::getCurrentTile() {
     return currentTile;
@@ -43,7 +40,7 @@ tileColors LangtonAnt::getCurrentTileColor() {
 
 // change direction counter clockwise (right)
 void LangtonAnt::CCW() {
-    if(getDirection() == west)
+    if(currentDirection == west)
         currentDirection = south;
     else
         currentDirection--;
@@ -51,7 +48,7 @@ void LangtonAnt::CCW() {
 
 // change direction clockwise (left)
 void LangtonAnt::CW() {
-    if(getDirection() == south)
+    if(currentDirection == south)
         currentDirection = west;
     else
         currentDirection++;

@@ -22,17 +22,15 @@ public:
     // change tile color. If tile is NULL, change it to white, if it is white changge to black and from black change to white
     void changeTileColor(int index);
 
-
     bool isTileHasColor(int index); // true if yes, false if not
 
 
 private:
     QVector<QGraphicsRectItem *> rects;
-//    QRect createDefaultRect(int indexX, int indexY);
     void drawGrid();    // draw grid
 
-    QColor *light;
-    QColor *dark;
+    QColor *light;  // white color tile
+    QColor *dark;   // dark(black) color tile
 
     int width;  // width of scene
     int height; // height of scene
