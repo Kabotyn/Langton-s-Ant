@@ -1,4 +1,4 @@
-# Langton-s-Ant
+# Langton's Ant
 
 Simulation of Langton's Ant, simple cellular automaton.
 

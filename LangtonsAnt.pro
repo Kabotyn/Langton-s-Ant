@@ -23,7 +23,8 @@ HEADERS  += dialog.h \
 
 FORMS    += dialog.ui
 
-DISTFILES +=
+DISTFILES += \
+    README.md
 
 RESOURCES += \
     resources.qrc
