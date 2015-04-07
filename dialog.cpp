@@ -22,9 +22,6 @@ Dialog::Dialog(QWidget *parent) :
 
     int x, y, index;
 
-
-
-
 //    antIcon->setPos(100, 100);
 //    antIcon->setRotation(90);
 
@@ -34,7 +31,7 @@ Dialog::Dialog(QWidget *parent) :
      QColor q_white(255, 255, 255);
      QColor q_dark(115, 115, 115);
 
-//    scene->addRect(x*11+1, y*11+1, 9 ,9 , QPen(ant->getCurrentTileColor() == white ? q_white : q_dark), QBrush(ant->getCurrentTileColor() == white ? q_white : q_dark));
+    scene->addRect(x*11+1, y*11+1, 9 ,9 , QPen(ant->getCurrentTileColor() == white ? q_white : q_dark), QBrush(ant->getCurrentTileColor() == white ? q_white : q_dark));
 //qDebug() << "-" << ant->getCurrentTile() << ant->getCurrentTileColor();
 //    for(int i = 0; i < 30; i++) {
 //        qDebug() << ant->getCurrentTile() << ant->getCurrentTileColor();

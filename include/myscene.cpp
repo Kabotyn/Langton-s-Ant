@@ -38,30 +38,33 @@ MyScene::~MyScene()
 }
 
 void MyScene::mousePressEvent(QGraphicsSceneMouseEvent *e) {
-//void MyScene::mouseMoveEvent(QGraphicsSceneMouseEvent *e) {
 
     int rectX = floor(e->scenePos().x() / 11);  // rectangle number from lfet
     int rectY = floor(e->scenePos().y() / 11);  // rectangle number from top
 
-    int index = (rectY*55 + rectX);     // index is a number of rectangle counting from 0 to 2199.
+    int index = (rectY*floor(width/11) + rectX);     // index is a number of rectangle counting from 0 to 2199.
 
     if(rects[index].x() == -10) {   // so index does not exist (-10 is a default value)
-        rects[index] = createDefaultRect(rectX, rectY); // add rect to vector
-        addRect(rects[index], QPen(QColor(115, 115, 115)), QBrush(QColor(115, 115, 115))); // draw rectangle
+        //rects[index] = createDefaultRect(rectX, rectY); // add rect to vector
+
+        QGraphicsRectItem *xx = new QGraphicsRectItem(20, 20, 20, 20);
+        xx->setBrush(QBrush(QColor(55, 115, 115)));
+        xx->setPen(QPen(QColor(115, 115, 115)));
+        addItem(xx);
+
+        //addRect(rects[index], QPen(QColor(115, 115, 115)), QBrush(QColor(115, 115, 115))); // draw rectangle
     } else {
-
+//        rects[index] =
     }
-
-
 
 //    QGraphicsItem *x;
 //    QList<QGraphicsItem *> l;
 //    l = this->items();
 //    x = l.front();
 //    //x->set
+
     qDebug() << rectX << rectY <<  index;// << l.size() << rects.size() << rects[1] << rects[1].x() << rects[1].y() ;
 
-    //qDebug() << l.size() << x->isVisible() << x->pos().x() << x->scenePos().x();
 
 }
 
