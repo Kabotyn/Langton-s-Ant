@@ -50,18 +50,38 @@ tileColors LangtonAnt::getCurrentTileColor() {
 
 // change direction counter clockwise (right)
 void LangtonAnt::CCW() {
-    if(currentDirection == west)
+    switch (currentDirection) {
+    case west:
         currentDirection = south;
-    else
-        currentDirection--;
+        break;
+    case south:
+        currentDirection = east;
+        break;
+    case east:
+        currentDirection = north;
+        break;
+    case north:
+        currentDirection = west;
+        break;
+    }
 }
 
 // change direction clockwise (left)
 void LangtonAnt::CW() {
-    if(currentDirection == south)
+    switch (currentDirection) {
+    case west:
+        currentDirection = north;
+        break;
+    case south:
         currentDirection = west;
-    else
-        currentDirection++;
+        break;
+    case east:
+        currentDirection = south;
+        break;
+    case north:
+        currentDirection = east;
+        break;
+    }
 }
 
 
