@@ -1,15 +1,12 @@
 # Langton's Ant
 
-Simulation of Langton's Ant, simple cellular automaton.
-
-*8th April 2015*
-
-Early working version movie: https://youtu.be/huwUNBAgOtg
-
-Next step to do is change tile color by mouse clicking and change GUI (add buttons etc.)
+Simulation of Langton's Ant, simple cellular automaton. More informations you can find on [Wikipedia - click here](http://en.wikipedia.org/wiki/Langton%27s_ant) 
 
 
-Project written in Qt.
+Whole project was written in C++ using Qt Creator. 
 
+Short movie how this program works: https://youtu.be/TluRmCQc4Pw
 
-More information about Langton's Ant: http://en.wikipedia.org/wiki/Langton%27s_ant
+Print screen:
+
+![ApplicationScreen](http://i.imgur.com/RcHytKw.png "Langton's Ant application screen")
