@@ -89,6 +89,12 @@ void LangtonAnt::changeTileColor(int p_index) {
     tiles[p_index] = (tiles[p_index] == white) ? black : white;
 }
 
+
+
+void LangtonAnt::onMouseChaneTile(int index) {
+    changeTileColor(index);
+}
+
 int LangtonAnt::nextTile() {
     int currentX, currentY; // x and y of current tile
     countTilePosXY(currentTile, currentX, currentY);

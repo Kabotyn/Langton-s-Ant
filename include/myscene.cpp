@@ -4,7 +4,7 @@
 #include <QGraphicsItem>
 #include <cmath>
 
-MyScene::MyScene(QObject *parent, int w, int h)
+MyScene::MyScene(int w, int h) : QGraphicsScene(0)
 {
     width = w;
     height = h;
@@ -46,10 +46,24 @@ MyScene::~MyScene()
 void MyScene::mousePressEvent(QGraphicsSceneMouseEvent *e) {
 // here will be possibility to change status(color) of tiles
 
-//    int rectX = floor(e->scenePos().x() / 11);  // rectangle number from lfet
-//    int rectY = floor(e->scenePos().y() / 11);  // rectangle number from top
+    int rectX = floor(e->scenePos().x() / 11);  // rectangle number from lfet
+    int rectY = floor(e->scenePos().y() / 11);  // rectangle number from top
 
-//    int index = (rectY*floor(width/11) + rectX);     // index is a number of rectangle counting from 0 to 2199.
+    int index = (rectY*floor(width/11) + rectX);     // index is a number of rectangle counting from 0 to 2199.
+
+    emit mouseClickOnTile(index); // emit signal to slot to change tile color in model (langtonant class)
+
+
+    if(rects[index] == NULL) {   // so index does not exist
+        // dirty way to change color of unussed tile (==NULL). Becaue NULL tile is white
+        // and first time used tile is also white so after one clik tile is still white.
+        // We do not want this, so we change it again to dark color.
+        changeTileColor(index);
+        changeTileColor(index);
+
+    } else {
+        changeTileColor(index);
+    }
 
 }
 

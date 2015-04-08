@@ -1,16 +1,20 @@
 #ifndef MYSCENE_H
 #define MYSCENE_H
 
+
 #include <QGraphicsScene>
 #include <QVector>
+#include <QObject>
 
 /* Thanks to this class I cad add mouseMoveEvent to scene
  */
 class MyScene : public QGraphicsScene
 {
 
+    Q_OBJECT
+
 public:
-    explicit MyScene(QObject *parent = 0, int w = 500, int h = 400);
+    explicit MyScene(int w = 500, int h = 400);
     ~MyScene();
 
     void clear();   // overload clear function. clear for me means no rects, only grid is show
@@ -27,6 +31,8 @@ public:
     // change current ant tile border to current position
     void putRedRectInPos(int index);
 
+signals:
+    void mouseClickOnTile(int index);
 
 private:
     QVector<QGraphicsRectItem *> rects;

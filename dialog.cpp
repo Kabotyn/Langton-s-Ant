@@ -10,7 +10,7 @@ Dialog::Dialog(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    scene = new MyScene(this, 606, 441);
+    scene = new MyScene(606, 441);
 
     ui->graphicsView->setScene(scene);      // add MyScene to graphicVie
 
@@ -22,7 +22,7 @@ Dialog::Dialog(QWidget *parent) :
     timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(onTimer()));
 
-
+    connect(scene, SIGNAL(mouseClickOnTile(int)), ant, SLOT(onMouseChaneTile(int)));
 
 }
 

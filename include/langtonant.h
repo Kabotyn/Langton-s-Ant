@@ -1,15 +1,19 @@
 #ifndef LANGTONANT_H
 #define LANGTONANT_H
 
+#include <QObject>
 #include <vector>
 #include <cmath>
 #include <QDebug>
 
+
 enum directions { west, north, east, south }; // all possible ant directions
 enum tileColors { white, black };  // all possible field status
 
-class LangtonAnt
-{
+class LangtonAnt  : public QObject {
+
+    Q_OBJECT
+
 public:
     LangtonAnt(int p_w, int p_h);   // number of fields in a row (w) and in col (h)
     ~LangtonAnt();
@@ -29,6 +33,10 @@ public:
 
     // change color (from white to blac and from black to white) of tile in index in tiles (vector)
     void changeTileColor(int p_index);
+
+public slots:
+    // when user use mouse and clik on tile, we change status on this tile using this slot
+    void onMouseChaneTile(int index);
 
 private:
     directions currentDirection;    // current ant direction
