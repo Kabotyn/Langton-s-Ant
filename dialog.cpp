@@ -11,13 +11,10 @@ Dialog::Dialog(QWidget *parent) :
     ui->setupUi(this);
 
     scene = new MyScene(this, 606, 441);
-//    scene = new MyScene(this, 11*11+1, 11*11+1);
 
     ui->graphicsView->setScene(scene);      // add MyScene to graphicVie
 
     ant = new LangtonAnt(55, 40);
-//    ant = new LangtonAnt(11, 11);
-
 
     scene->changeTileColor(ant->getCurrentTile());
     scene->putRedRectInPos(ant->getCurrentTile());
@@ -38,7 +35,6 @@ Dialog::~Dialog()
 
 void Dialog::on_pushButton_clicked()
 {
-//    scene->clear();
     if(timer->isActive()) {
         timer->stop();
         ui->pushButton->setText("Start");
@@ -53,7 +49,6 @@ void Dialog::onTimer() {
 
     scene->changeTileColor(ant->getCurrentTile());
 
-    //scene->changeTileColor(ant->nextTile());
     ant->move();
 
     scene->putRedRectInPos(ant->getCurrentTile());
@@ -73,13 +68,9 @@ void Dialog::on_clearButton_clicked()
 
     scene->clear();
     ant->restart();
-    //delete ant;
-    //ant = new LangtonAnt(55, 40);
-//    ant = new LangtonAnt(11, 11);
 
     scene->changeTileColor(ant->getCurrentTile());
     scene->putRedRectInPos(ant->getCurrentTile());
-    //scene->clear();
 }
 
 void Dialog::on_intervalBox_valueChanged(int arg1)
