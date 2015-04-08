@@ -24,6 +24,8 @@ public:
     // make one step
     void move();
 
+    void restart(); // restart object to init time
+
 private:
     directions currentDirection;    // current ant direction
     std::vector<tileColors> tiles;    // vector with all of fields (rect)

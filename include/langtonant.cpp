@@ -18,6 +18,16 @@ LangtonAnt::~LangtonAnt() {
 
 }
 
+void LangtonAnt::restart() {
+    currentDirection = north;
+
+    tiles.clear();
+    tiles.resize(width*height, white);
+
+    // init curent tile more or less in the middle of space
+    currentTile = countTileIndex(floor(width/2), floor(height/2));
+}
+
 // count tail index number start from 0
 int LangtonAnt::countTileIndex(int p_posX, int p_posY) {
     return (p_posY * width) + p_posX;

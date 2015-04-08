@@ -43,7 +43,7 @@ void Dialog::on_pushButton_clicked()
         timer->stop();
         ui->pushButton->setText("Start");
     }  else {
-        timer->start(2);
+        timer->start( ui->intervalBox->value() );
         ui->pushButton->setText("Stop");
     }
 
@@ -62,4 +62,27 @@ void Dialog::onTimer() {
         scene->changeTileColor(ant->getCurrentTile());
     }
 
+}
+
+void Dialog::on_clearButton_clicked()
+{
+    if(timer->isActive()) {
+        timer->stop();
+        ui->pushButton->setText("Start");
+    }
+
+    scene->clear();
+    ant->restart();
+    //delete ant;
+    //ant = new LangtonAnt(55, 40);
+//    ant = new LangtonAnt(11, 11);
+
+    scene->changeTileColor(ant->getCurrentTile());
+    scene->putRedRectInPos(ant->getCurrentTile());
+    //scene->clear();
+}
+
+void Dialog::on_intervalBox_valueChanged(int arg1)
+{
+    timer->setInterval(arg1);
 }

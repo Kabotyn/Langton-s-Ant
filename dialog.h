@@ -42,6 +42,8 @@ protected:
 private slots:
     void on_pushButton_clicked();
     void onTimer();
+    void on_clearButton_clicked();
+    void on_intervalBox_valueChanged(int arg1);
 };
 
 #endif // DIALOG_H

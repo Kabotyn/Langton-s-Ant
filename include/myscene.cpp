@@ -64,9 +64,14 @@ void MyScene::putRedRectInPos(int index) {
 
 // my clear function. Clear scene and put grid
 void MyScene::clear() {
-    QGraphicsScene::clear(); // clear scene
-    rects.fill(NULL);  // clear vector with rectangles
-    drawGrid(); // draw grid
+
+    for(int i = 0; i < rects.size(); i++ ) {
+        if(rects[i] != NULL) {
+            removeItem(rects[i]);
+            rects[i] = NULL;
+        }
+    }
+
 }
 
 void MyScene::antCW() {

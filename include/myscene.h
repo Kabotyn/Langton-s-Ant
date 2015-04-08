@@ -22,8 +22,9 @@ public:
     // change tile color. If tile is NULL, change it to white, if it is white changge to black and from black change to white
     void changeTileColor(int index);
 
-    bool isTileHasColor(int index); // true if yes, false if not
+    bool isTileHasColor(int index); // true if yes, false if not (means that ant was on this tile)
 
+    // change current ant tile border to current position
     void putRedRectInPos(int index);
 
 
