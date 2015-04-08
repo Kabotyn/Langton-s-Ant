@@ -20,10 +20,10 @@ Dialog::Dialog(QWidget *parent) :
 
 
     scene->changeTileColor(ant->getCurrentTile());
+    scene->putRedRectInPos(ant->getCurrentTile());
 
     timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(onTimer()));
-    timer->start(100);
 
 
 
@@ -41,8 +41,10 @@ void Dialog::on_pushButton_clicked()
 //    scene->clear();
     if(timer->isActive()) {
         timer->stop();
+        ui->pushButton->setText("Start");
     }  else {
-        timer->start();
+        timer->start(2);
+        ui->pushButton->setText("Stop");
     }
 
 }
@@ -53,6 +55,8 @@ void Dialog::onTimer() {
 
     //scene->changeTileColor(ant->nextTile());
     ant->move();
+
+    scene->putRedRectInPos(ant->getCurrentTile());
 
     if(scene->isTileHasColor(ant->getCurrentTile()) == false) {
         scene->changeTileColor(ant->getCurrentTile());

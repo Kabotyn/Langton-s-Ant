@@ -15,7 +15,9 @@ MyScene::MyScene(QObject *parent, int w, int h)
     rects.resize(floor(width/11)*floor(height/11));
     rects.fill(NULL);
 
-//    redRect = new QGraphicsRectItem(0, 0, 9, 9);
+    redRect = new QGraphicsRectItem(0, 0, 9, 9);
+    redRect->setPen(QPen(Qt::red));
+    addItem(redRect);
 
     light = new QColor(255, 255, 255);
     dark = new QColor(115, 115, 115);
@@ -50,6 +52,14 @@ void MyScene::mousePressEvent(QGraphicsSceneMouseEvent *e) {
 //    int index = (rectY*floor(width/11) + rectX);     // index is a number of rectangle counting from 0 to 2199.
 
 
+}
+
+void MyScene::putRedRectInPos(int index) {
+
+    int rectX = index % (width/11);
+    int rectY = floor(index / (width/11));
+    redRect->setPos( rectX*11+1, rectY*11+1 );
+    redRect->setZValue(10);
 }
 
 // my clear function. Clear scene and put grid

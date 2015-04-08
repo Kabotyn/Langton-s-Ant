@@ -2,8 +2,12 @@
 
 Simulation of Langton's Ant, simple cellular automaton.
 
-This project is still under construction. More information will show here soon.
+*8th April 2015*
+Early working version movie: https://youtu.be/huwUNBAgOtg
+Next step is change tile color by mouse clicking and change GUI (add buttons etc.)
+
 
 Project written in Qt.
+
 
 More information about Langton's Ant: http://en.wikipedia.org/wiki/Langton%27s_ant

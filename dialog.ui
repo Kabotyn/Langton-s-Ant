@@ -83,7 +83,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>Clear</string>
+    <string>Start</string>
    </property>
   </widget>
  </widget>

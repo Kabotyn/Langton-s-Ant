@@ -24,6 +24,8 @@ public:
 
     bool isTileHasColor(int index); // true if yes, false if not
 
+    void putRedRectInPos(int index);
+
 
 private:
     QVector<QGraphicsRectItem *> rects;
