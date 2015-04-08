@@ -51,7 +51,6 @@ void MyScene::mousePressEvent(QGraphicsSceneMouseEvent *e) {
 
 //    int index = (rectY*floor(width/11) + rectX);     // index is a number of rectangle counting from 0 to 2199.
 
-
 }
 
 void MyScene::putRedRectInPos(int index) {

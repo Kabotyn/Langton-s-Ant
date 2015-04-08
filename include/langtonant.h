@@ -26,6 +26,10 @@ public:
 
     void restart(); // restart object to init time
 
+
+    // change color (from white to blac and from black to white) of tile in index in tiles (vector)
+    void changeTileColor(int p_index);
+
 private:
     directions currentDirection;    // current ant direction
     std::vector<tileColors> tiles;    // vector with all of fields (rect)
@@ -42,8 +46,7 @@ private:
     // set currentDirection to new walue base on status of tile number index
     void newDirection(int p_newTileIndex);
 
-    // change color (from white to blac and from black to white) of tile in index in tiles (vector)
-    void changeTileColor(int p_index);
+
 
     // count current tile index based on x and y, count from 0!!
     int countTileIndex(int p_posX, int p_posY);
